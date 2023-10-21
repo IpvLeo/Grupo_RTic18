@@ -415,6 +415,41 @@ Função para listar todas as consultas*/
 
 int main()
 {
-   
-   
+    int escolha;
+    vector<Paciente> pacientes;
+    vector<Medico> medicos;
+    vector<Consulta> consultas;
+
+    while (true) {
+        cout << "\nMENU DE PACIENTES\n";
+        cout << "1. Incluir Paciente\n";
+        cout << "2. Excluir Paciente\n";
+        cout << "3. Alterar Paciente\n";
+        cout << "4. Listar Pacientes\n";
+        cout << "5. Localizar Paciente\n";
+        cout << "0. Sair\n";
+        cout << "Escolha a opcao: ";
+        cin >> escolha;
+
+        if (escolha == 0) {
+            break;
+        } else if (escolha == 1) {
+            IncluirPaciente();
+        } else if (escolha == 2) {
+            ExcluirPaciente();
+        } else if (escolha == 3) {
+            AlterarPaciente();
+        } else if (escolha == 4) {
+            ListarPacientes();
+        } else if (escolha == 5) {
+            LocalizarPaciente();
+        } else {
+            cout << "Opcao invalida. Tente novamente." << endl;
+        }
+    }
+
+    
+
+
+    return 0;
 }
