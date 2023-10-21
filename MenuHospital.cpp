@@ -449,12 +449,158 @@ void LocalizarMedico(const vector<Medico> &medicos)
     cout << "CRM nao encontrado." << endl;
 }
 
-/* Inicio da parte em Grupo
+// Função para incluir uma nova consulta
+void IncluirConsulta(vector<Consulta> &consultas, const vector<Paciente> &pacientes, const vector<Medico> &medicos)
+{
+    string CPF, CRM, data, hora;
+    int duracao;
+    bool pacienteEncontrado = false, medicoEncontrado = false;
 
-Função para incluir uma nova consulta
-Função para excluir uma consulta
-Função para alterar uma consulta
-Função para listar todas as consultas*/
+    cout << "CPF do Paciente: ";
+    cin >> CPF;
+    cout << "CRM do Médico: ";
+    cin >> CRM;
+
+    for (const Paciente &paciente : pacientes)
+    {
+        if (paciente.getCPF() == CPF)
+        {
+            pacienteEncontrado = true;
+            break;
+        }
+    }
+
+    for (const Medico &medico : medicos)
+    {
+        if (medico.getCRM() == CRM)
+        {
+            medicoEncontrado = true;
+            break;
+        }
+    }
+
+    if (!pacienteEncontrado)
+    {
+        cout << "CPF de paciente nao encontrado. Consulta nao pode ser marcada." << endl;
+        return;
+    }
+
+    if (!medicoEncontrado)
+    {
+        cout << "CRM de medico nao encontrado. Consulta nao pode ser marcada." << endl;
+        return;
+    }
+
+    cout << "Data da consulta (DD/MM/AAAA): ";
+    cin >> data;
+    cout << "Hora da consulta (HH:MM): ";
+    cin >> hora;
+    cout << "Duração da consulta (em minutos): ";
+    cin >> duracao;
+
+    Consulta novaConsulta(CPF, CRM, data, hora, duracao);
+    consultas.push_back(novaConsulta);
+    cout << "Consulta marcada com sucesso!" << endl;
+}
+// Função para excluir uma consulta
+void ExcluirConsulta(vector<Consulta> &consultas, const string &CRM, const string &CPF)
+{
+    for (auto it = consultas.begin(); it != consultas.end(); ++it)
+    {
+        if (it->getCRM() == CRM && it->getCPF() == CPF)
+        {
+            consultas.erase(it);
+            cout << "Consulta excluida com sucesso!" << endl;
+            return;
+        }
+    }
+    cout << "Consulta nao encontrada. Nenhum registro excluido." << endl;
+}
+// Função para alterar uma consulta
+void AlterarConsulta(vector<Consulta> &consultas, const string &CRM, const string &CPF)
+{
+    string AlterarCRM, AlterarCPF;
+    cout << "Digite o CRM do medico da consulta que deseja alterar: ";
+    cin >> AlterarCRM;
+    cout << "Digite o CPF do paciente da consulta que deseja alterar: ";
+    cin >> AlterarCPF;
+
+    for (auto &consulta : consultas)
+    {
+        if (consulta.getCRM() == AlterarCRM && consulta.getCPF() == AlterarCPF)
+        {
+            cout << "Dados atuais da consulta:" << endl;
+            cout << "CRM do Médico: " << consulta.getCRM() << endl;
+            cout << "CPF do Paciente: " << consulta.getCPF() << endl;
+            cout << "Data da Consulta: " << consulta.getData() << endl;
+            cout << "Hora da Consulta: " << consulta.getHora() << endl;
+            cout << "Duração da Consulta: " << consulta.getDuracao() << " minutos" << endl;
+            cout << "Realizada: " << (consulta.isRealizada() ? "Sim" : "Não") << endl;
+
+            char opcao;
+            cout << "Deseja marcar a consulta como realizada? (S/N): ";
+            cin >> opcao;
+            if (opcao == 'S' || opcao == 's')
+            {
+                consulta.marcarRealizada();
+                cout << "Consulta marcada como realizada!" << endl;
+            }
+            else
+            {
+                cout << "Deseja alterar a data da consulta? (S/N): ";
+                cin >> opcao;
+                if (opcao == 'S' || opcao == 's')
+                {
+                    cout << "Informe a nova data da consulta (DD/MM/AAAA): ";
+                    cin >> AlterarCRM;
+                    consulta.setData(AlterarCRM);
+                }
+
+                cout << "Deseja alterar a hora da consulta? (S/N): ";
+                cin >> opcao;
+                if (opcao == 'S' || opcao == 's')
+                {
+                    cout << "Informe a nova hora da consulta (HH:MM): ";
+                    cin >> AlterarCRM;
+                    consulta.setHora(AlterarCRM);
+                }
+
+                cout << "Deseja alterar a duracao da consulta? (S/N): ";
+                cin >> opcao;
+                if (opcao == 'S' || opcao == 's')
+                {
+                    cout << "Informe a nova duracao da consulta (em minutos): ";
+                    cin >> AlterarCPF;
+                    consulta.setDuracao(stoi(AlterarCPF));
+                }
+            }
+            return;
+        }
+    }
+
+    cout << "Consulta nao encontrada." << endl;
+}
+// Função para listar todas as consultas
+void ListarConsultas(const vector<Consulta> &consultas)
+{
+    if (consultas.empty())
+    {
+        cout << "Nenhuma consulta marcada." << endl;
+        return;
+    }
+
+    cout << "Lista de consultas:" << endl;
+    for (const Consulta &consulta : consultas)
+    {
+        cout << "CRM do Medico: " << consulta.getCRM() << endl;
+        cout << "CPF do Paciente: " << consulta.getCPF() << endl;
+        cout << "Data da Consulta: " << consulta.getData() << endl;
+        cout << "Hora da Consulta: " << consulta.getHora() << endl;
+        cout << "Duração da Consulta: " << consulta.getDuracao() << " minutos" << endl;
+        cout << "Realizada: " << (consulta.isRealizada() ? "Sim" : "Nao") << endl;
+        cout << "---------------------------" << endl;
+    }
+}
 
 int main()
 {
