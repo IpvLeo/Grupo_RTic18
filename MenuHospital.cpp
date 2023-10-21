@@ -12,43 +12,52 @@ private:
     string Nascimento;
 
 public:
-    Paciente(const string &CPF, const string &Nome, const string &Nascimento)
-    {
-        this->CPF = CPF;
-        this->Nome = Nome;
-        this->Nascimento = Nascimento;
-    }
-
-    string getCPF() const
-    {
-        return CPF;
-    }
-
-    string getNome() const
-    {
-        return Nome;
-    }
-
-    string getNascimento() const
-    {
-        return Nascimento;
-    }
-
-    void setCPF(const string &CPF)
-    {
-        this->CPF = CPF;
-    }
-
-    void setNome(const string &Nome)
-    {
-        this->Nome = Nome;
-    }
-
-    void setNascimento(const string &Nascimento)
-    {
-        this->Nascimento = Nascimento;
-    }
+    Paciente(string CPF, string Nome, string Nascimento);
+    string getCPF() const;
+    string getNome() const;
+    string getNascimento() const;
+    void setCPF(string CPF);
+    void setNome(string Nome);
+    void setNascimento(string Nascimento);
 };
+
+Paciente::Paciente(string CPF, string Nome, string Nascimento)
+{
+    this->CPF = CPF;
+    this->Nome = Nome;
+    this->Nascimento = Nascimento;
+}
+
+string Paciente::getCPF() const
+{
+    return CPF;
+}
+
+string Paciente::getNome() const
+{
+    return Nome;
+}
+
+string Paciente::getNascimento() const
+{
+    return Nascimento;
+}
+
+void Paciente::setCPF(string CPF)
+{
+    this->CPF = CPF;
+}
+
+void Paciente::setNome(string Nome)
+{
+    this->Nome = Nome;
+}
+
+void Paciente::setNascimento(string Nascimento)
+{
+    this->Nascimento = Nascimento;
+}
+
 class Medico
 {
 private:
@@ -57,43 +66,52 @@ private:
     string Especialidade;
 
 public:
-    Medico(const string &CRM, const string &Nome, const string &Especialidade)
-    {
-        this->CRM = CRM;
-        this->Nome = Nome;
-        this->Especialidade = Especialidade;
-    }
-
-    string getCRM() const
-    {
-        return CRM;
-    }
-
-    string getNome() const
-    {
-        return Nome;
-    }
-
-    string getEspecialidade() const
-    {
-        return Especialidade;
-    }
-
-    void Medico::setCRM(const string &CRM)
-    {
-        this->CRM = CRM;
-    }
-
-    void Medico::setNome(const string &Nome)
-    {
-        this->Nome = Nome;
-    }
-
-    void setEspecialidade(const string &Especialidade)
-    {
-        this->Especialidade = Especialidade;
-    }
+    Medico(string CRM, string Nome, string Especialidade);
+    string getCRM() const;
+    string getNome() const;
+    string getEspecialidade() const;
+    void setCRM(string CRM);
+    void setNome(string Nome);
+    void setEspecialidade(string Especialidade);
 };
+
+Medico::Medico(string CRM, string Nome, string Especialidade)
+{
+    this->CRM = CRM;
+    this->Nome = Nome;
+    this->Especialidade = Especialidade;
+}
+
+string Medico::getCRM() const
+{
+    return CRM;
+}
+
+string Medico::getNome() const
+{
+    return Nome;
+}
+
+string Medico::getEspecialidade() const
+{
+    return Especialidade;
+}
+
+void Medico::setCRM(string CRM)
+{
+    this->CRM = CRM;
+}
+
+void Medico::setNome(string Nome)
+{
+    this->Nome = Nome;
+}
+
+void Medico::setEspecialidade(string Especialidade)
+{
+    this->Especialidade = Especialidade;
+}
+
 class Consulta
 {
 private:
@@ -105,67 +123,79 @@ private:
     bool realizada;
 
 public:
-    Consulta(const string &CPF, const string &CRM, const string &data, const string &hora, const int &duracao, const bool realizada)
-    {
-
-        this->CPF = CPF;
-        this->CRM = CRM;
-        this->data = data;
-        this->hora = hora;
-        this->duracao = duracao;
-        this->realizada = false;
-    }
-
-    string getCPF() const
-    {
-        return CPF;
-    }
-
-    string getCRM() const
-    {
-        return CRM;
-    }
-
-    string getData() const
-    {
-        return data;
-    }
-
-    string getHora() const
-    {
-        return hora;
-    }
-
-    int getDuracao() const
-    {
-        return duracao;
-    }
-
-    bool isRealizada() const
-    {
-        return realizada;
-    }
-
-    void marcarRealizada()
-    {
-        realizada = true;
-    }
-
-    void setData(const string& data)
-    {
-        this->data = data;
-    }
-
-    void setHora(const string& hora)
-    {
-        this->hora = hora;
-    }
-
-    void setDuracao(const int& duracao)
-    {
-        this->duracao = duracao;
-    }
+    Consulta(string CPF, string CRM, string data, string hora, int duracao);
+    string getCPF() const;
+    string getCRM() const;
+    string getData() const;
+    string getHora() const;
+    int getDuracao() const;
+    bool isRealizada() const;
+    void marcarRealizada();
+    void setData(string data);
+    void setHora(string hora);
+    void setDuracao(int duracao);
 };
+
+Consulta::Consulta(string CPF, string CRM, string data, string hora, int duracao)
+{
+    this->CPF = CPF;
+    this->CRM = CRM;
+    this->data = data;
+    this->hora = hora;
+    this->duracao = duracao;
+    this->realizada = false;
+}
+
+string Consulta::getCPF() const
+{
+    return CPF;
+}
+
+string Consulta::getCRM() const
+{
+    return CRM;
+}
+
+string Consulta::getData() const
+{
+    return data;
+}
+
+string Consulta::getHora() const
+{
+    return hora;
+}
+
+int Consulta::getDuracao() const
+{
+    return duracao;
+}
+
+bool Consulta::isRealizada() const
+{
+    return realizada;
+}
+
+void Consulta::marcarRealizada()
+{
+    realizada = true;
+}
+
+void Consulta::setData(string data)
+{
+    this->data = data;
+}
+
+void Consulta::setHora(string hora)
+{
+    this->hora = hora;
+}
+
+void Consulta::setDuracao(int duracao)
+{
+    this->duracao = duracao;
+}
+
 // Função para incluir um novo paciente
 void IncluirPaciente(vector<Paciente> &pacientes)
 {
