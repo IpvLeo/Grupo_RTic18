@@ -1,5 +1,3 @@
-
-
 #include <iostream>
 #include <string>
 #include <vector>
@@ -184,6 +182,7 @@ void IncluirPaciente(vector<Paciente> &pacientes)
     pacientes.push_back(novoPaciente);
     cout << "Paciente incluido com sucesso!" << endl;
 }
+
 // Função para excluir um paciente
 void ExcluirPaciente(vector<Paciente> &pacientes)
 {
@@ -191,18 +190,22 @@ void ExcluirPaciente(vector<Paciente> &pacientes)
     cout << "Digite o CPF do Paciente que deseja excluir: ";
     cin >> ExcluirCPF;
 
-    for (auto it = pacientes.begin(); it != pacientes.end(); ++it)
+    for (auto it = pacientes.begin(); it != pacientes.end();)
     {
         if (it->getCPF() == ExcluirCPF)
         {
-            pacientes.erase(it);
+            it = pacientes.erase(it);
             cout << "Paciente excluido com sucesso!" << endl;
-            return;
+        }
+        else
+        {
+            ++it;
         }
     }
 
     cout << "CPF nao encontrado. Nenhum paciente excluido." << endl;
 }
+
 // Função para alterar dados do paciente
 void AlterarPaciente(vector<Paciente> &pacientes)
 {
@@ -248,6 +251,7 @@ void AlterarPaciente(vector<Paciente> &pacientes)
 
     cout << "CPF nao encontrado." << endl;
 }
+
 // Função para listar todos os pacientes
 void ListarPaciente(const vector<Paciente> &pacientes)
 {
@@ -266,6 +270,7 @@ void ListarPaciente(const vector<Paciente> &pacientes)
         cout << "---------------------------" << endl;
     }
 }
+
 // Função para localizar um paciente
 void LocalizarPaciente(const vector<Paciente> &pacientes)
 {
@@ -286,6 +291,7 @@ void LocalizarPaciente(const vector<Paciente> &pacientes)
 
     cout << "CPF nao encontrado." << endl;
 }
+
 // Função para incluir um novo medico
 void IncluirMedico(vector<Medico> &medicos)
 {
@@ -302,6 +308,7 @@ void IncluirMedico(vector<Medico> &medicos)
     medicos.push_back(novoMedico);
     cout << "Medico incluido com sucesso!" << endl;
 }
+
 // Função para excluir um medico
 void ExcluirMedico(vector<Medico> &medicos)
 {
@@ -309,18 +316,22 @@ void ExcluirMedico(vector<Medico> &medicos)
     cout << "Digite o CRM do Medico que deseja excluir: ";
     cin >> ExcluirCRM;
 
-    for (auto it = medicos.begin(); it != medicos.end(); ++it)
+    for (auto it = medicos.begin(); it != medicos.end();)
     {
         if (it->getCRM() == ExcluirCRM)
         {
-            medicos.erase(it);
+            it = medicos.erase(it);
             cout << "Medico excluido com sucesso!" << endl;
-            return;
+        }
+        else
+        {
+            ++it;
         }
     }
 
     cout << "CRM nao encontrado. Nenhum medico excluído." << endl;
 }
+
 // Função para alterar dados de um medico
 void AlterarMedico(vector<Medico> &medicos)
 {
@@ -367,6 +378,7 @@ void AlterarMedico(vector<Medico> &medicos)
 
     cout << "CRM nao encontrado." << endl;
 }
+
 // Função para listar todos os medicos
 void ListarMedico(const vector<Medico> &medicos)
 {
@@ -385,6 +397,7 @@ void ListarMedico(const vector<Medico> &medicos)
         cout << "---------------------------" << endl;
     }
 }
+
 // Função para localizar um medico
 void LocalizarMedico(const vector<Medico> &medicos)
 {
@@ -406,6 +419,7 @@ void LocalizarMedico(const vector<Medico> &medicos)
     cout << "CRM nao encontrado." << endl;
 }
 
+<<<<<<< HEAD:G.cpp
 /* Inicio da parte em Grupo
 
 Função para incluir uma nova consulta
@@ -416,6 +430,10 @@ Função para listar todas as consultas*/
 int main()
 {
     int escolha;
+=======
+int main()
+{
+>>>>>>> beb6f9dffc3ac428be651d4fd762ed1e7adc6679:MenuHospital.cpp
     vector<Paciente> pacientes;
     vector<Medico> medicos;
     vector<Consulta> consultas;
@@ -431,7 +449,109 @@ int main()
         cout << "Escolha a opcao: ";
         cin >> escolha;
 
+<<<<<<< HEAD:G.cpp
         if (escolha == 0) {
+=======
+    do
+    {
+        cout << endl
+             << "Menu Inicial:" << endl;
+        cout << "1. Gestao de Pacientes" << endl;
+        cout << "2. Gestao de Medicos" << endl;
+        cout << "3. Gestao de Consultas" << endl;
+        cout << "0. Sair do Programa" << endl;
+        cout << "Escolha uma opcao: ";
+        cin >> MenuInicial;
+
+        switch (MenuInicial)
+        {
+        case 1:
+            while (MenuInicial)
+            {
+                // Menu de Gestão de Pacientes
+                int MenuInicialPacientes;
+
+                cout << "\nMENU DE PACIENTES\n";
+                cout << "1. Incluir Paciente\n";
+                cout << "2. Excluir Paciente\n";
+                cout << "3. Alterar Paciente\n";
+                cout << "4. Listar Pacientes\n";
+                cout << "5. Localizar Paciente\n";
+                cout << "0. Sair\n";
+                cout << "Escolha a opcao: ";
+                cin >> MenuInicialPacientes;
+
+                if (MenuInicialPacientes == 0)
+                {
+                    break;
+                }
+                else if (MenuInicialPacientes == 1)
+                {
+                    IncluirPaciente(pacientes);
+                }
+                else if (MenuInicialPacientes == 2)
+                {
+                    ExcluirPaciente(pacientes);
+                }
+                else if (MenuInicialPacientes == 3)
+                {
+                    AlterarPaciente(pacientes);
+                }
+                else if (MenuInicialPacientes == 4)
+                {
+                    ListarPaciente(pacientes);
+                }
+                else if (MenuInicialPacientes == 5)
+                {
+                    LocalizarPaciente(pacientes);
+                }
+                else
+                {
+                    cout << "Opcao invalida. Tente novamente." << endl;
+                }
+            }
+            break;
+        case 2:
+            // Menu de Gestão de Médicos
+            int MenuinicialMedicos;
+            do
+            {
+                cout << endl
+                     << "Menu de Gestao de Medicos:" << endl;
+                cout << "1. Incluir Medico" << endl;
+                cout << "2. Excluir Medico" << endl;
+                cout << "3. Alterar Medico (Apenas por CRM)" << endl;
+                cout << "4. Listar Medicos" << endl;
+                cout << "5. Localizar Medico (Apenas por CRM)" << endl;
+                cout << "0. Voltar" << endl;
+                cout << "Escolha uma opcao: ";
+                cin >> MenuinicialMedicos;
+
+                switch (MenuinicialMedicos)
+                {
+                case 1:
+                    IncluirMedico(medicos);
+                    break;
+                case 2:
+                    ExcluirMedico(medicos);
+                    break;
+                case 3:
+                    AlterarMedico(medicos);
+                    break;
+                case 4:
+                    ListarMedico(medicos);
+                    break;
+                case 5:
+                    LocalizarMedico(medicos);
+                    break;
+                case 0:
+                    cout << "Voltando ao Menu Inicial." << endl;
+                    break;
+                default:
+                    cout << "Opcao invalida." << endl;
+                }
+            } while (MenuinicialMedicos != 0);
+>>>>>>> beb6f9dffc3ac428be651d4fd762ed1e7adc6679:MenuHospital.cpp
             break;
         } else if (escolha == 1) {
             IncluirPaciente();
