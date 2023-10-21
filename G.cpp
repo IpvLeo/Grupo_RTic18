@@ -443,42 +443,57 @@ Função para excluir uma consulta
 Função para alterar uma consulta
 Função para listar todas as consultas*/
 
-int main()
-{
+int main() {
     vector<Paciente> pacientes;
     vector<Medico> medicos;
     vector<Consulta> consultas;
 
-    while (true) {
-        cout << "\nMENU DE PACIENTES\n";
-        cout << "1. Incluir Paciente\n";
-        cout << "2. Excluir Paciente\n";
-        cout << "3. Alterar Paciente\n";
-        cout << "4. Listar Pacientes\n";
-        cout << "5. Localizar Paciente\n";
-        cout << "0. Sair\n";
-        cout << "Escolha a opcao: ";
-        cin >> escolha;
+    int MenuInicial;
 
-        if (escolha == 0) {
-            break;
-        } else if (escolha == 1) {
-            IncluirPaciente();
-        } else if (escolha == 2) {
-            excluirPaciente();
-        } else if (escolha == 3) {
-            alterarPaciente();
-        } else if (escolha == 4) {
-            listarPacientes();
-        } else if (escolha == 5) {
-            localizarPaciente();
-        } else {
-            cout << "Opcao invalida. Tente novamente." << endl;
+    do {
+        cout << endl << "Menu Inicial:" << endl;
+        cout << "1. Gestao de Pacientes" << endl;
+        cout << "2. Gestao de Medicos" << endl;
+        cout << "3. Gestao de Consultas" << endl;
+        cout << "0. Sair do Programa" << endl;
+        cout << "Escolha uma opcao: ";
+        cin >> MenuInicial;
+
+        switch (MenuInicial) {
+            case 1:
+                while (MenuInicial) {
+                    // Menu de Gestão de Pacientes
+                    int MenuInicialPacientes;
+
+                    cout << "\nMENU DE PACIENTES\n";
+                    cout << "1. Incluir Paciente\n";
+                    cout << "2. Excluir Paciente\n";
+                    cout << "3. Alterar Paciente\n";
+                    cout << "4. Listar Pacientes\n";
+                    cout << "5. Localizar Paciente\n";
+                    cout << "0. Sair\n";
+                    cout << "Escolha a opcao: ";
+                    cin >> MenuInicialPacientes;
+
+                    if (MenuInicialPacientes == 0) {
+                        break;
+                    } else if (MenuInicialPacientes == 1) {
+                        IncluirPaciente();
+                    } else if (MenuInicialPacientes == 2) {
+                        excluirPaciente();
+                    } else if (MenuInicialPacientes == 3) {
+                        alterarPaciente();
+                    } else if (MenuInicialPacientes == 4) {
+                        listarPacientes();
+                    } else if (MenuInicialPacientes == 5) {
+                        localizarPaciente();
+                    } else {
+                        cout << "Opcao invalida. Tente novamente." << endl;
+                    }
+                }
+                break;
         }
-    }
-
-    
-
+    } while (MenuInicial != 0);
 
     return 0;
 }
