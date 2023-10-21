@@ -492,6 +492,46 @@ int main() {
                     }
                 }
                 break;
+            case 2:
+            // Menu de Gestão de Médicos
+            int MenuinicialMedicos;
+            do
+            {
+                cout << endl << "Menu de Gestao de Medicos:" << endl;
+                cout << "1. Incluir Medico" << endl;
+                cout << "2. Excluir Medico" << endl;
+                cout << "3. Alterar Medico (Apenas por CRM)" << endl;
+                cout << "4. Listar Medicos" << endl;
+                cout << "5. Localizar Medico (Apenas por CRM)" << endl;
+                cout << "0. Voltar" << endl;
+                cout << "Escolha uma opcao: ";
+                cin >> MenuinicialMedicos;
+
+                switch (MenuinicialMedicos)
+                {
+                case 1:
+                    IncluirMedico(medicos);
+                    break;
+                case 2:
+                    ExcluirMedico(medicos);
+                    break;
+                case 3:
+                    AlterarMedico(medicos);
+                    break;
+                case 4:
+                    ListarMedico(medicos);
+                    break;
+                case 5:
+                    LocalizarMedico(medicos);
+                    break;
+                case 0:
+                    cout << "Voltando ao Menu Inicial." << endl;
+                    break;
+                default:
+                    cout << "Opcao invalida." << endl;
+                }
+            } while (MenuinicialMedicos != 0);
+            break;
         }
     } while (MenuInicial != 0);
 
