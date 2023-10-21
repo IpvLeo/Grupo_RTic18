@@ -419,7 +419,6 @@ void LocalizarMedico(const vector<Medico> &medicos)
     cout << "CRM nao encontrado." << endl;
 }
 
-<<<<<<< HEAD:G.cpp
 /* Inicio da parte em Grupo
 
 Função para incluir uma nova consulta
@@ -429,33 +428,15 @@ Função para listar todas as consultas*/
 
 int main()
 {
-    int escolha;
-=======
-int main()
-{
->>>>>>> beb6f9dffc3ac428be651d4fd762ed1e7adc6679:MenuHospital.cpp
     vector<Paciente> pacientes;
     vector<Medico> medicos;
     vector<Consulta> consultas;
 
-    while (true) {
-        cout << "\nMENU DE PACIENTES\n";
-        cout << "1. Incluir Paciente\n";
-        cout << "2. Excluir Paciente\n";
-        cout << "3. Alterar Paciente\n";
-        cout << "4. Listar Pacientes\n";
-        cout << "5. Localizar Paciente\n";
-        cout << "0. Sair\n";
-        cout << "Escolha a opcao: ";
-        cin >> escolha;
+    int MenuInicial;
 
-<<<<<<< HEAD:G.cpp
-        if (escolha == 0) {
-=======
     do
     {
-        cout << endl
-             << "Menu Inicial:" << endl;
+        cout << endl << "Menu Inicial:" << endl;
         cout << "1. Gestao de Pacientes" << endl;
         cout << "2. Gestao de Medicos" << endl;
         cout << "3. Gestao de Consultas" << endl;
@@ -465,111 +446,149 @@ int main()
 
         switch (MenuInicial)
         {
-        case 1:
-            while (MenuInicial)
-            {
-                // Menu de Gestão de Pacientes
-                int MenuInicialPacientes;
+            case 1:
+                while (MenuInicial)
+                {
+                    // Menu de Gestão de Pacientes
+                    int MenuInicialPacientes;
 
-                cout << "\nMENU DE PACIENTES\n";
-                cout << "1. Incluir Paciente\n";
-                cout << "2. Excluir Paciente\n";
-                cout << "3. Alterar Paciente\n";
-                cout << "4. Listar Pacientes\n";
-                cout << "5. Localizar Paciente\n";
-                cout << "0. Sair\n";
-                cout << "Escolha a opcao: ";
-                cin >> MenuInicialPacientes;
+                    cout << "\nMENU DE PACIENTES\n";
+                    cout << "1. Incluir Paciente\n";
+                    cout << "2. Excluir Paciente\n";
+                    cout << "3. Alterar Paciente\n";
+                    cout << "4. Listar Pacientes\n";
+                    cout << "5. Localizar Paciente\n";
+                    cout << "0. Sair\n";
+                    cout << "Escolha a opcao: ";
+                    cin >> MenuInicialPacientes;
 
-                if (MenuInicialPacientes == 0)
-                {
-                    break;
+                    if (MenuInicialPacientes == 0)
+                    {
+                        break;
+                    }
+                    else if (MenuInicialPacientes == 1)
+                    {
+                        IncluirPaciente(pacientes);
+                    }
+                    else if (MenuInicialPacientes == 2)
+                    {
+                        ExcluirPaciente(pacientes);
+                    }
+                    else if (MenuInicialPacientes == 3)
+                    {
+                        AlterarPaciente(pacientes);
+                    }
+                    else if (MenuInicialPacientes == 4)
+                    {
+                        ListarPaciente(pacientes);
+                    }
+                    else if (MenuInicialPacientes == 5)
+                    {
+                        LocalizarPaciente(pacientes);
+                    }
+                    else
+                    {
+                        cout << "Opcao invalida. Tente novamente." << endl;
+                    }
                 }
-                else if (MenuInicialPacientes == 1)
+                break;
+            case 2:
+                // Menu de Gestão de Médicos
+                int MenuInicialMedicos;
+                do
                 {
-                    IncluirPaciente(pacientes);
-                }
-                else if (MenuInicialPacientes == 2)
-                {
-                    ExcluirPaciente(pacientes);
-                }
-                else if (MenuInicialPacientes == 3)
-                {
-                    AlterarPaciente(pacientes);
-                }
-                else if (MenuInicialPacientes == 4)
-                {
-                    ListarPaciente(pacientes);
-                }
-                else if (MenuInicialPacientes == 5)
-                {
-                    LocalizarPaciente(pacientes);
-                }
-                else
-                {
-                    cout << "Opcao invalida. Tente novamente." << endl;
-                }
-            }
-            break;
-        case 2:
-            // Menu de Gestão de Médicos
-            int MenuinicialMedicos;
-            do
-            {
-                cout << endl
-                     << "Menu de Gestao de Medicos:" << endl;
-                cout << "1. Incluir Medico" << endl;
-                cout << "2. Excluir Medico" << endl;
-                cout << "3. Alterar Medico (Apenas por CRM)" << endl;
-                cout << "4. Listar Medicos" << endl;
-                cout << "5. Localizar Medico (Apenas por CRM)" << endl;
-                cout << "0. Voltar" << endl;
-                cout << "Escolha uma opcao: ";
-                cin >> MenuinicialMedicos;
+                    cout << endl << "Menu de Gestao de Medicos:" << endl;
+                    cout << "1. Incluir Medico" << endl;
+                    cout << "2. Excluir Medico" << endl;
+                    cout << "3. Alterar Medico (Apenas por CRM)" << endl;
+                    cout << "4. Listar Medicos" << endl;
+                    cout << "5. Localizar Medico (Apenas por CRM)" << endl;
+                    cout << "0. Voltar" << endl;
+                    cout << "Escolha uma opcao: ";
+                    cin >> MenuInicialMedicos;
 
-                switch (MenuinicialMedicos)
+                    switch (MenuInicialMedicos)
+                    {
+                        case 1:
+                            IncluirMedico(medicos);
+                            break;
+                        case 2:
+                            ExcluirMedico(medicos);
+                            break;
+                        case 3:
+                            AlterarMedico(medicos);
+                            break;
+                        case 4:
+                            ListarMedico(medicos);
+                            break;
+                        case 5:
+                            LocalizarMedico(medicos);
+                            break;
+                        case 0:
+                            cout << "Voltando ao Menu Inicial." << endl;
+                            break;
+                        default:
+                            cout << "Opcao invalida." << endl;
+                    }
+                } while (MenuInicialMedicos != 0);
+                break;
+            case 3:
+                // Menu de Gestão de Consultas
+                int MenuInicialConsultas;
+                do
                 {
-                case 1:
-                    IncluirMedico(medicos);
-                    break;
-                case 2:
-                    ExcluirMedico(medicos);
-                    break;
-                case 3:
-                    AlterarMedico(medicos);
-                    break;
-                case 4:
-                    ListarMedico(medicos);
-                    break;
-                case 5:
-                    LocalizarMedico(medicos);
-                    break;
-                case 0:
-                    cout << "Voltando ao Menu Inicial." << endl;
-                    break;
-                default:
-                    cout << "Opcao invalida." << endl;
-                }
-            } while (MenuinicialMedicos != 0);
->>>>>>> beb6f9dffc3ac428be651d4fd762ed1e7adc6679:MenuHospital.cpp
-            break;
-        } else if (escolha == 1) {
-            IncluirPaciente();
-        } else if (escolha == 2) {
-            ExcluirPaciente();
-        } else if (escolha == 3) {
-            AlterarPaciente();
-        } else if (escolha == 4) {
-            ListarPacientes();
-        } else if (escolha == 5) {
-            LocalizarPaciente();
-        } else {
-            cout << "Opcao invalida. Tente novamente." << endl;
+                    cout << endl << "Menu de Gestao de Consultas:" << endl;
+                    cout << "1. Incluir Consulta" << endl;
+                    cout << "2. Excluir Consulta" << endl;
+                    cout << "3. Alterar Consulta (Apenas por CRM e CPF)" << endl;
+                    cout << "4. Listar Consultas" << endl;
+                    cout << "0. Voltar" << endl;
+                    cout << "Escolha uma opcao: ";
+                    cin >> MenuInicialConsultas;
+
+                    switch (MenuInicialConsultas)
+                    {
+                        case 1:
+                            IncluirConsulta(consultas, pacientes, medicos);
+                            break;
+                        case 2:
+                            {
+                                string ExcluirCPF, ExcluirCRM;
+                                cout << "Digite o CPF do Paciente da consulta: ";
+                                cin >> ExcluirCPF;
+                                cout << "Digite o CRM do Medico da consulta: ";
+                                cin >> ExcluirCRM;
+                                ExcluirConsulta(consultas, ExcluirCRM, ExcluirCPF);
+                            }
+                            break;
+                        case 3:
+                            {
+                                string AlterarCPF, AlterarCRM;
+                                cout << "Digite o CPF do Paciente da consulta que deseja alterar: ";
+                                cin >> AlterarCPF;
+                                cout << "Digite o CRM do Medico da consulta que deseja alterar: ";
+                                cin >> AlterarCRM;
+                                AlterarConsulta(consultas, AlterarCRM, AlterarCPF);
+                            }
+                            break;
+                        case 4:
+                            ListarConsultas(consultas);
+                            break;
+                        case 0:
+                            cout << "Voltando ao Menu Inicial." << endl;
+                            break;
+                        default:
+                            cout << "Opcao invalida." << endl;
+                    }
+                } while (MenuInicialConsultas != 0);
+                break;
+            case 0:
+                cout << "Saindo do programa." << endl;
+                break;
+            default:
+                cout << "Opcao invalida." << endl;
         }
-    }
-
-    
-
+    } while (MenuInicial != 0);
 
     return 0;
 }
