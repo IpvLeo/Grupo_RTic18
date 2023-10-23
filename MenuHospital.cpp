@@ -708,9 +708,10 @@ int main()
                     }
                 } while (MenuInicialMedicos != 0);
                 break;
-            case 3:
-                 // Menu de Gestão de Consultas
+             case 3:
+            // Menu de Gestão de Consultas
             int MenuinicialConsultas;
+
             do
             {
                 cout << endl << "Menu de Gestao de Consultas:" << endl;
@@ -764,10 +765,6 @@ int main()
         default:
             cout << "Opcao invalida." << endl;
         }
-    } while (Menuinicial != 0);
-
-    return 0;
-}
     } while (MenuInicial != 0);
 
     return 0;
