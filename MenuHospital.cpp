@@ -709,7 +709,65 @@ int main()
                 } while (MenuInicialMedicos != 0);
                 break;
             case 3:
-                
+                 // Menu de Gestão de Consultas
+            int MenuinicialConsultas;
+            do
+            {
+                cout << endl << "Menu de Gestao de Consultas:" << endl;
+                cout << "1. Incluir Consulta" << endl;
+                cout << "2. Excluir Consulta" << endl;
+                cout << "3. Alterar Consulta (Apenas por CRM e CPF)" << endl;
+                cout << "4. Listar Consultas" << endl;
+                cout << "0. Voltar" << endl;
+                cout << "Escolha uma opcao: ";
+                cin >> MenuinicialConsultas;
+
+                switch (MenuinicialConsultas)
+                {
+                case 1:
+                    IncluirConsulta(consultas, pacientes, medicos);
+                    break;
+                case 2:
+                    {
+                        string ExcluirCPF, ExcluirCRM;
+                        cout << "Digite o CPF do Paciente da consulta: ";
+                        cin >> ExcluirCPF;
+                        cout << "Digite o CRM do Medico da consulta: ";
+                        cin >> ExcluirCRM;
+                        ExcluirConsulta(consultas, ExcluirCRM, ExcluirCPF);
+                    }
+                    break;
+                case 3:
+                    {
+                        string AlterarCPF, AlterarCRM;
+                        cout << "Digite o CPF do Paciente da consulta que deseja alterar: ";
+                        cin >> AlterarCPF;
+                        cout << "Digite o CRM do Medico da consulta que deseja alterar: ";
+                        cin >> AlterarCRM;
+                        AlterarConsulta(consultas, AlterarCRM, AlterarCPF);
+                    }
+                    break;
+                case 4:
+                    ListarConsultas(consultas);
+                    break;
+                case 0:
+                    cout << "Voltando ao Menu Inicial." << endl;
+                    break;
+                default:
+                    cout << "Opcao invalida." << endl;
+                }
+            } while (MenuinicialConsultas != 0);
+            break;
+        case 0:
+            cout << "Saindo do programa." << endl;
+            break;
+        default:
+            cout << "Opcao invalida." << endl;
+        }
+    } while (Menuinicial != 0);
+
+    return 0;
+}
     } while (MenuInicial != 0);
 
     return 0;
